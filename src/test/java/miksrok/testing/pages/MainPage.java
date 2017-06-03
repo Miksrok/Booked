@@ -28,8 +28,15 @@ public class MainPage {
     private By city = By.xpath("//ul[@id='ui-id-3']/li[2]");
     private By firstDate = By.id("d_from0_0");
     private By room = By.xpath("//div[@data-show='hotels']/div");
-    private By adults = By.id("s2id_autogen23");
+    //private By adults = By.id("s2id_autogen23");
+    private By adults = By.xpath("//div[@data-room='1']/div[2]/div/a");
     private By adultsNum1 = By.xpath("//div[@id='select2-drop']/ul/li[1]");
+
+    private By firstRoomChildren = By.xpath("//div[@data-room='1']/div[3]/div/a");
+    private By firstRoomChildrenQty = By.xpath("//div[@id='select2-drop']/ul/li[2]");
+
+    private By childrenAge = By.xpath("//div[@data-room='1']/div[4]/div/div/a");
+    private By childrenAgeValue = By.xpath("//div[@id='select2-drop']/ul/li[2]");
 
 
     public MainPage(WebDriver driver){
@@ -76,6 +83,7 @@ public class MainPage {
 
     public void addRoom(){
 
+        //wait.until(ExpectedConditions.visibilityOfElementLocated(this.room));
         WebElement room = driver.findElement(this.room);
         room.click();
         wait.until(ExpectedConditions.visibilityOfElementLocated(this.adults));
@@ -83,6 +91,14 @@ public class MainPage {
         adult.click();
         WebElement adultsNum1 = driver.findElement(this.adultsNum1);
         adultsNum1.click();
+        WebElement firstRoomChildren = driver.findElement(this.firstRoomChildren);
+        firstRoomChildren.click();
+        WebElement tmp = driver.findElement(this.firstRoomChildrenQty);
+        tmp.click();
+        WebElement childrenAge = driver.findElement(this.childrenAge);
+        childrenAge.click();
+        WebElement childrenAgeValue = driver.findElement(this.childrenAgeValue);
+        childrenAgeValue.click();
 
     }
 

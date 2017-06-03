@@ -15,8 +15,8 @@ public class TestSuite extends BaseScript {
         public void test(){
 
             mainPage.openMainPage();
-            mainPage.enterCityName();
-            mainPage.enterDate();
+            /*mainPage.enterCityName();
+            mainPage.enterDate();*/
             mainPage.addRoom();
 
         }
