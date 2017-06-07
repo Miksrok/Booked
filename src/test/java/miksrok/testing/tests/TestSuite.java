@@ -1,7 +1,7 @@
 package miksrok.testing.tests;
 
 import miksrok.testing.BaseScript;
-import miksrok.testing.pages.MainPage;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 /**
@@ -9,16 +9,38 @@ import org.testng.annotations.Test;
  */
 public class TestSuite extends BaseScript {
 
-        //private MainPage mainPage;
-
-        @Test
-        public void test(){
-
-            mainPage.openMainPage();
-            /*mainPage.enterCityName();
-            mainPage.enterDate();*/
-            mainPage.addRoom();
-
+        @Test(priority = 2)
+        public void emptyFieldTest(){
+            mainPage.emptyField();
         }
+        @Test(priority = 3)
+        public void fieldWithThreeLetersTest(){
+                mainPage.fieldWithThreeLeters();
+        }
+        @Parameters("city")
+        @Test(priority = 4)
+        public void fieldWithFullCityNameTest(String city){
+                mainPage.fieldWithFullCityName(city);
+        }
+        @Test(priority = 5)
+        public void enterDateOneDayTest(){
+            mainPage.enterDateOneDay();
+        }
+        @Test(priority = 6)
+        public void enterDateMonthTest(){
+                mainPage.enterDateMonth();
+        }
+        @Test(priority = 7)
+        public void addRoomTest(){
+                mainPage.addRoom();
+        }
+        @Test(priority = 8)
+        public void addSecondRoomTest(){
+                mainPage.addSecondRoom();
+        }
+
+
+
+
 
 }

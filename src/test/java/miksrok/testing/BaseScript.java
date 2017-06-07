@@ -22,6 +22,7 @@ public abstract class BaseScript {
 
     private EventFiringWebDriver driver;
     protected MainPage mainPage;
+    protected String country;
 
 
     private WebDriver getDriver(String browser) {
@@ -38,9 +39,10 @@ public abstract class BaseScript {
     }
 
     @BeforeClass
-    @Parameters("browser")
-    public void setUp(String browser) {
-        driver = new EventFiringWebDriver(getDriver(browser));
+    @Parameters("country")
+    public void setUp(String code) {
+        //driver = new EventFiringWebDriver(getDriver(browser));
+        driver = new EventFiringWebDriver(getDriver("chrome"));
         driver.register(new EventHandler());
 
         driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
@@ -48,13 +50,16 @@ public abstract class BaseScript {
         driver.manage().window().maximize();
 
         mainPage = new MainPage(driver);
+        mainPage.openMainPage();
+        mainPage.setCountryCode(code);
+        mainPage.country(code);
     }
 
-   /* @AfterClass
+    @AfterClass
     public void tearDown() {
         if (driver != null) {
             driver.quit();
         }
-    }*/
+    }
 
 }
