@@ -1,20 +1,29 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
-<suite name="Products Management" verbose="1" >
-    <test name="Create New Product [Chrome]" >
-        <parameter name="browser" value="chrome"/>
+<suite name="Products Management" verbose="1">
+
+
+    <test name="ver.En">
+        <parameter name="country" value="en"/>
+        <parameter name="city" value="Rome, Italy"/>
+        <classes>
+            <class name="miksrok.testing.tests.TestSuite"/>
+        </classes>
+    </test>
+    <test name="ver.De">
+        <parameter name="country" value="de"/>
+         <parameter name="city" value="Rom, Italien"/>
+        <classes>
+            <class name="miksrok.testing.tests.TestSuite"/>
+        </classes>
+    </test>
+    <test name="ver.Fr">
+        <parameter name="country" value="fr"/>
+        <parameter name="city" value="Rome, Italie"/>
         <classes>
             <class name="miksrok.testing.tests.TestSuite"/>
         </classes>
     </test>
 
-   <!-- <test name="Create New Product [Firefox]" >
-        <parameter name="browser" value="firefox"/>
-        <classes>
-            <class name="miksrok.testing.tests.TestSuite"/>
-        </classes>
-    </test>-->
-
-    <!--Prepare test for firefox and IE browsers-->
 
 </suite>
